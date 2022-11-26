@@ -1,6 +1,6 @@
 package com.example.productivity.utils;
 
-public enum PLAN_STATUS {
+public enum ITEM_STATUS {
     DONE,
     IN_PROGRESS
 }

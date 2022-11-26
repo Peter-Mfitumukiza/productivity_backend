@@ -1,2 +1,4 @@
-package com.example.productivity.utils;public class UserValidator {
+package com.example.productivity.utils;
+
+public class UserValidator {
 }

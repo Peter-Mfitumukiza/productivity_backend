@@ -1,35 +1,40 @@
 package com.example.productivity.models;
 
+import org.hibernate.annotations.CreationTimestamp;
+
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.Collection;
 
 @Entity
 @Table(name = "users")
 public class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String firstname;
     private String lastname;
     private String email;
     private String password;
-    private LocalDate dob;
+    @Column(nullable = false)
+    @CreationTimestamp
+    private LocalDateTime dateOfCreation;
 
-    public User(Long id, String firstname, String lastname, String email, String password, LocalDate dob) {
+    public User(Long id, String firstname, String lastname, String email, String password) {
         this.id = id;
         this.firstname = firstname;
         this.lastname = lastname;
         this.email = email;
         this.password = password;
-        this.dob = dob;
     }
 
-    public User(String firstname, String lastname, String email, String password, LocalDate dob) {
+    public User(String firstname, String lastname, String email, String password) {
         this.firstname = firstname;
         this.lastname = lastname;
         this.email = email;
         this.password = password;
-        this.dob = dob;
     }
 
     public User() {
@@ -75,12 +80,12 @@ public class User {
         this.password = password;
     }
 
-    public LocalDate getDob() {
-        return dob;
+    public LocalDateTime getDateOfCreation() {
+        return dateOfCreation;
     }
 
-    public void setDob(LocalDate dob) {
-        this.dob = dob;
+    public void setDob(LocalDateTime dateOfCreation) {
+        this.dateOfCreation = dateOfCreation;
     }
 
     @Override
@@ -91,7 +96,7 @@ public class User {
                 ", lastname='" + lastname + '\'' +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
-                ", dob=" + dob +
+                ", dateOfCreation=" + dateOfCreation +
                 '}';
     }
 }
