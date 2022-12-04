@@ -3,17 +3,21 @@ package com.example.productivity.models;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
-import java.time.LocalDate;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.Collection;
 
 @Entity
-@Table(name = "users")
+@Table(name = "users",
+    uniqueConstraints = {
+        @UniqueConstraint(columnNames = "email")
+    }
+)
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private Integer id;
+
     private String firstname;
     private String lastname;
     private String email;
@@ -22,7 +26,7 @@ public class User {
     @CreationTimestamp
     private LocalDateTime dateOfCreation;
 
-    public User(Long id, String firstname, String lastname, String email, String password) {
+    public User(Integer id, String firstname, String lastname, String email, String password) {
         this.id = id;
         this.firstname = firstname;
         this.lastname = lastname;
@@ -40,11 +44,11 @@ public class User {
     public User() {
     }
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

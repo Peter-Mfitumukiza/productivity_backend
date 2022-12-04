@@ -1,15 +1,19 @@
-package com.example.productivity.models;
+package com.example.productivity.payload.request;
 
-public class LoginCredentials {
+import javax.validation.constraints.NotBlank;
+
+public class LoginRequest {
+    @NotBlank
     private String email;
+    @NotBlank
     private String password;
 
-    public LoginCredentials(String email, String password) {
+    public LoginRequest(String email, String password) {
         this.email = email;
         this.password = password;
     }
 
-    public LoginCredentials() {
+    public LoginRequest() {
     }
 
     public String getEmail() {

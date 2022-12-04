@@ -10,7 +10,7 @@ import java.time.LocalDate;
 public class Note {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private Integer id;
     private String noteSubject;
     private String noteDetails;
     @Column(nullable = false)
@@ -30,7 +30,7 @@ public class Note {
         this.user = user;
     }
 
-    public Note(Long id, String noteSubject, String noteDetails, LocalDate dateOfCreation, User user) {
+    public Note(Integer id, String noteSubject, String noteDetails, LocalDate dateOfCreation, User user) {
         this.id = id;
         this.noteSubject = noteSubject;
         this.noteDetails = noteDetails;
@@ -38,11 +38,11 @@ public class Note {
         this.user = user;
     }
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
