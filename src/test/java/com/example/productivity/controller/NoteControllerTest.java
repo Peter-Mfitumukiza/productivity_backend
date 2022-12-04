@@ -1,11 +1,9 @@
 package com.example.productivity.controller;
 
 import com.example.productivity.controllers.NoteController;
-import com.example.productivity.controllers.UserController;
 import com.example.productivity.models.Note;
 import com.example.productivity.models.User;
 import com.example.productivity.repository.NoteRepository;
-import com.example.productivity.repository.UserRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
